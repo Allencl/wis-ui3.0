@@ -9,6 +9,8 @@ function resolve(dir){
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  lintOnSave:false,
+  
   configureWebpack:{
     output: { 
       filename: `js/js[name].${timeStamp}.js`,
