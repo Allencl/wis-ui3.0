@@ -1,9 +1,11 @@
 <template>
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
-      <div class="logo" />
+      <!-- <div class="logo">
+        <h1>111111111111111111111</h1>
+      </div> -->
 
-      <menuHTML />
+      <menuHTML :collapsed="collapsed" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0" />
@@ -19,6 +21,7 @@
       <!-- <a-layout-footer style="text-align: center">
         Ant Design ©2018 Created by Ant UED
       </a-layout-footer> -->
+      <h1>{{ collapsed }}</h1>
     </a-layout>
   </a-layout>
 </template>
