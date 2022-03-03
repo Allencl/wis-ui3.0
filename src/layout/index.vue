@@ -6,7 +6,7 @@
     <a-layout>
 
     <tabsHTML />
-    
+
     <contentHTML />
 
     </a-layout>
@@ -38,7 +38,13 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+.ant-layout-sider{
+  /* background: #fff; */
+}
 [data-theme='dark'] .site-layout .site-layout-background {
   background: #141414;
+}
+.ant-layout-sider-trigger{
+  /* background: #fff; */
 }
 </style>

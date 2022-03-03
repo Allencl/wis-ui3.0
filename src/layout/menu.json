@@ -1,5 +1,18 @@
 [
     {
-        
+        "id":"1",
+        "name": "示例页面",
+        "children": [
+            {
+                "id":"1-1",
+                "name": "复杂表单-侧栏A",
+                "path": "/wis/demo/aaa"
+            },
+            {
+                "id":"1-2",
+                "name": "复杂表单-侧栏B",
+                "path": "/wis/demo/bbb"
+            }
+        ]
     }
 ]
