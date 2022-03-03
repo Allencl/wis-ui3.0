@@ -1,14 +1,8 @@
 import { createStore } from 'vuex'
+import tabsModule from './tabs'
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    tabsStore: tabsModule,
   }
 })

@@ -18,6 +18,7 @@
         <a-menu-item 
             v-else
             :key="`menu-item${o.id}`"
+            @click="menuItemClick(o)"
         >
             {{o.name}}
         </a-menu-item>
@@ -27,10 +28,22 @@
 <script lang="ts" setup>
     import {UserOutlined} from '@ant-design/icons-vue';
     import {defineProps,ref} from 'vue';
+    import { useStore } from 'vuex'
+    import { useRouter } from 'vue-router'
+
     import menuListHTML from '@/layout/menuList.vue'
+
+    const store=useStore()
+    const router=useRouter()
+
 
     interface  PropsType{
         menuData: Array
     }
     const props=defineProps<PropsType>()
+
+    const menuItemClick=(option)=>{
+        store.dispatch("addTabs",option)
+        router.push(option.path)
+    }
 </script>

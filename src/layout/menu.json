@@ -6,12 +6,12 @@
             {
                 "id":"1-1",
                 "name": "复杂表单-侧栏A",
-                "path": "/wis/demo/aaa"
+                "path": "/aaa"
             },
             {
                 "id":"1-2",
                 "name": "复杂表单-侧栏B",
-                "path": "/wis/demo/bbb"
+                "path": "/bbb"
             }
         ]
     }

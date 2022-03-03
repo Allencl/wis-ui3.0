@@ -5,14 +5,20 @@
                 <a-tabs 
                     v-model:activeKey="activeKey" 
                     size="small"
+                    type="editable-card"
                     :tabBarStyle="{
                         margin:'0px',
                         border:'none'
                     }"
+                    :hideAdd="true"
+                    @edit="onRemove"
+                    @change="tabChange"
                 >
-                    <a-tab-pane key="1" tab="Tab 1"></a-tab-pane>
-                    <a-tab-pane key="2" tab="Tab 2"></a-tab-pane>
-                    <a-tab-pane key="3" tab="Tab 3"></a-tab-pane>
+                    <a-tab-pane 
+                        v-for="(o,i) in store.state.tabsStore.tabsList"
+                        :key="i" 
+                        :tab="o.name"
+                    ></a-tab-pane>
                 </a-tabs>
             </a-col>
             <a-col class="user-content" :span="1">
@@ -38,10 +44,26 @@
 </template>
 <script lang="ts" setup>
     import { defineComponent, ref } from 'vue'
+    import { useStore } from 'vuex'
+    import { useRouter } from 'vue-router'
     import { ImportOutlined } from '@ant-design/icons-vue'
 
 
+    const store=useStore()
+    const router=useRouter()
     const activeKey=ref('1')
+
+    const onRemove = (targetKey: string) => {
+        store.dispatch("removeTabs",targetKey);
+    }
+
+    const tabChange=(activeKey:any)=>{
+        const _option = store.state.tabsStore.tabsList[activeKey]
+        router.push(_option.path)
+    }
+
+
+
 </script>
 
 <style lang="less" scoped>
@@ -65,6 +87,7 @@
 
 
 }
+
 .user-menu-content{
     >h1{
         min-width: 176px;

@@ -28,6 +28,9 @@
     collapsed: boolean,
   }
   const props=defineProps<PropsType>()
+
+
+
 </script>
 
 <style lang="less" scoped>
