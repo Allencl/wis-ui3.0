@@ -1,34 +1,28 @@
 <template>
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
-      <!-- <div class="logo">
-        <h1>111111111111111111111</h1>
-      </div> -->
-
       <menuHTML :collapsed="collapsed" />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0" />
+      <tabsHTML />
+
       <a-layout-content style="margin: 0 16px">
-        <a-breadcrumb style="margin: 16px 0">
+        <!-- <a-breadcrumb style="margin: 16px 0">
           <a-breadcrumb-item>User</a-breadcrumb-item>
           <a-breadcrumb-item>Bill</a-breadcrumb-item>
-        </a-breadcrumb>
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+        </a-breadcrumb> -->
+        <!-- <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
           Bill is a cat.
-        </div>
+        </div> -->
       </a-layout-content>
-      <!-- <a-layout-footer style="text-align: center">
-        Ant Design ©2018 Created by Ant UED
-      </a-layout-footer> -->
-      <h1>{{ collapsed }}</h1>
     </a-layout>
   </a-layout>
 </template>
 
 <script lang="ts" setup>
-  import menuHTML from "./menu.vue";
-  import { defineComponent, ref } from 'vue';
+  import menuHTML from "./menu.vue"
+  import tabsHTML from "./tabs.vue" 
+  import { defineComponent, ref } from 'vue'
 
 
   const  collapsed= ref(false)
