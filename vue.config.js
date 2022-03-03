@@ -19,7 +19,7 @@ module.exports = defineConfig({
   },
   chainWebpack: (config) => {
     config.resolve.alias
-      .set('@views', resolve('./src/views'))
+      .set('@', resolve('./src'))
   },
   css: { 
     loaderOptions: {

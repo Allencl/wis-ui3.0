@@ -2,10 +2,17 @@
     <a-layout-header class="wis-layout-header">
         <a-row>
             <a-col :span="23">
-                <a-tabs v-model:activeKey="activeKey" size="small">
-                    <a-tab-pane key="1" tab="Tab 1">Content of Tab Pane 1</a-tab-pane>
-                    <a-tab-pane key="2" tab="Tab 2">Content of Tab Pane 2</a-tab-pane>
-                    <a-tab-pane key="3" tab="Tab 3">Content of Tab Pane 3</a-tab-pane>
+                <a-tabs 
+                    v-model:activeKey="activeKey" 
+                    size="small"
+                    :tabBarStyle="{
+                        margin:'0px',
+                        border:'none'
+                    }"
+                >
+                    <a-tab-pane key="1" tab="Tab 1"></a-tab-pane>
+                    <a-tab-pane key="2" tab="Tab 2"></a-tab-pane>
+                    <a-tab-pane key="3" tab="Tab 3"></a-tab-pane>
                 </a-tabs>
             </a-col>
             <a-col class="user-content" :span="1">
@@ -42,6 +49,9 @@
     text-align: left;
     background: #fff;
     padding: 0px;
+    height: auto;
+    border-bottom: 1px solid #f0f0f0;
+
 
     .ant-row{
         line-height: normal;
@@ -53,15 +63,16 @@
     }
 
 
+
 }
-    .user-menu-content{
-        >h1{
-            min-width: 176px;
-            font-size: 22px;
-            padding-left: 12px;
-            padding-bottom: 2px;
-            border-bottom: 1px solid #f0f0f0;
-            font-family: serif;
-        }
+.user-menu-content{
+    >h1{
+        min-width: 176px;
+        font-size: 22px;
+        padding-left: 12px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #f0f0f0;
+        font-family: serif;
     }
+}
 </style>
