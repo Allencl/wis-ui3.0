@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import RoutersJSON from './router'
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -7,10 +8,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: () => import('@/layout/home.vue')
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('@/views/AboutView.vue')
+  ...RoutersJSON.routes,  // 业务代码配置
+  { 
+    path: '/:pathMatch(.*)', 
+    component: () => import("@/router/404.vue") 
   }
 ]
 

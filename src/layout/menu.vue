@@ -5,7 +5,7 @@
   <a-menu 
     v-model:selectedKeys="selectedKeys" 
     theme="dark"
-    mode="vertical"
+    mode="inline"
   >
     <menuListHTML 
       :menuData="menuJSON"
