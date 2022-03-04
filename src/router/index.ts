@@ -15,6 +15,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: () => import('@/layout/home.vue')
   },
+  {
+    path: '/login',
+    name: 'login',
+    meta:{independ:true},
+    components: {
+      independ: ()=> import('@/layout/login.vue')
+    }
+  },
   ...RoutersJSON.routes,  // 业务代码配置
   { 
     path: '/:pathMatch(.*)', 

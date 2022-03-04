@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { useRouter } from 'vue-router'
   import menuHTML from "./menu.vue"
   import tabsHTML from "./tabs.vue" 
   import contentHTML from './content.vue'
@@ -22,6 +23,9 @@
 
 
   const  collapsed= ref(false)
+  const router=useRouter()
+
+
 
 </script>
 

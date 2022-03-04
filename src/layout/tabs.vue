@@ -30,7 +30,7 @@
                     <template #overlay>
                         <a-menu class="user-menu-content">
                             <h1>周某某</h1>
-                            <a-menu-item>
+                            <a-menu-item @click="loginHandle">
                                 <!-- <DownOutlined /> -->
                                 <import-outlined />
                                 <span>退出登录</span>
@@ -62,7 +62,10 @@
         router.push(_option.path)
     }
 
-
+    // 登录
+    const loginHandle=()=>{
+        router.push('/login')
+    }
 
 </script>
 
