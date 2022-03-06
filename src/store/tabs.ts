@@ -11,7 +11,7 @@ export default {
 		*/
         addTabs:function(state:any,agrs:any){
             //去重
-            if( state.tabsList.filter((o:any)=>o.id==agrs.id).length ) return
+            if( state.tabsList.filter((o:any)=>o.path==agrs.path).length ) return
 
             state.tabsList=state.tabsList.concat([agrs])
 		},  

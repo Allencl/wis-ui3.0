@@ -43,15 +43,16 @@
     </a-layout-header>
 </template>
 <script lang="ts" setup>
-    import { defineComponent, ref } from 'vue'
+    import { defineComponent,watch, ref } from 'vue'
     import { useStore } from 'vuex'
-    import { useRouter } from 'vue-router'
+    import { useRoute,useRouter } from 'vue-router'
     import { ImportOutlined } from '@ant-design/icons-vue'
 
 
     const store=useStore()
+    const route = useRoute()
     const router=useRouter()
-    const activeKey=ref('1')
+    const activeKey=ref(1)
 
     const onRemove = (targetKey: string) => {
         store.dispatch("removeTabs",targetKey);
@@ -67,9 +68,21 @@
         router.push('/login')
     }
 
+    watch(
+        () => route.params,
+            ()=>{
+                // store.state.tabsStore.tabsList.map((o,i)=>{
+                //     if(o.path==route.path){
+                //         activeKey.value=i
+                //     }
+                // })
+            }
+    )
+
+
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .wis-layout-header{
     text-align: left;
     background: #fff;
@@ -87,7 +100,20 @@
         }
     }
 
+    .ant-tabs-nav{
 
+        .ant-tabs-tab{
+            background: #fff !important;
+            border-top-color: #fff !important;
+            border-left-color: #fff !important;
+            border-right-color: #fff !important;
+
+        }
+
+        .ant-tabs-tab-active{
+            border-bottom: 3px solid #1890ff !important;
+        }
+    }
 
 }
 
