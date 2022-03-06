@@ -44,6 +44,5 @@
 
     const menuItemClick=(option)=>{
         store.dispatch("addTabs",option)
-        router.push(option.path)
     }
 </script>

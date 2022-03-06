@@ -3,7 +3,7 @@
         <a-row>
             <a-col :span="23">
                 <a-tabs 
-                    v-model:activeKey="activeKey" 
+                    v-model:activeKey="store.state.tabsStore.activeKey" 
                     size="small"
                     type="editable-card"
                     :tabBarStyle="{
@@ -52,7 +52,7 @@
     const store=useStore()
     const route = useRoute()
     const router=useRouter()
-    const activeKey=ref(1)
+
 
     const onRemove = (targetKey: string) => {
         store.dispatch("removeTabs",targetKey);
