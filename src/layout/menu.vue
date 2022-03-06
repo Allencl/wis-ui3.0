@@ -1,5 +1,5 @@
 <template>
-  <div :class="`wis-menu-head-logo ${collapsed?'collapsed':''}`">
+  <div :class="`wis-menu-head-logo ${collapsed?'collapsed':''}`" @click="toHome">
     <img :src="require('./../assets/logo.png')" title="西信信息">
   </div>
   <a-menu 
@@ -17,10 +17,12 @@
 <script lang="ts" setup>
   import { PieChartOutlined, DesktopOutlined, UserOutlined, TeamOutlined, FileOutlined } from '@ant-design/icons-vue';
   import {defineProps, ref} from 'vue';
+  import { useRouter } from 'vue-router'
+
   import menuListHTML from './menuList.vue'
   import menuJSON from './menu.json'
 
-
+  const router=useRouter()
   const  selectedKeys= ref(['1'])
   
 
@@ -30,6 +32,11 @@
   const props=defineProps<PropsType>()
 
 
+  const toHome=()=>{
+    router.push('/')
+  }
+
+
 
 </script>
 
@@ -37,7 +44,7 @@
 .wis-menu-head-logo{
     padding: 12px 36px;
     width: 100%;
-    // height: 76px;
+    cursor: pointer;
 
     &.collapsed{
       padding: 6px 6px;

@@ -1,7 +1,6 @@
 <template>
     <a-layout-content class="wis-layout-content">
-        <router-view/>
-        <router-view name="independ" />
+        <router-view />
     </a-layout-content>
 </template>
 
