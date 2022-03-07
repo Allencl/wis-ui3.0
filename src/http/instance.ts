@@ -1,11 +1,13 @@
-import axios from 'axios';
-import qs from 'qs';
+import axios from 'axios'
+import { message } from 'ant-design-vue';
+import qs from 'qs'
 
 
 //让ajax携带cookie
-axios.defaults.withCredentials = true; 
+axios.defaults.withCredentials = true
 
-
+// base url
+// axios.defaults.baseURL=process.env.VUE_APP_SERVER_API_BASE
 
 let instance = axios.create();
 
@@ -26,25 +28,22 @@ instance.interceptors.request.use(
         return config;
     },
     (error) => {
-        return Promise.reject(error)
+        // return Promise.reject(error)
     }
 )
   
 // 响应拦截
 instance.interceptors.response.use(
-(response) => {
-
-
-    // 请求成功
-    if (response.status == 200) {
-    return response.data
+    (response)=>{
+        // 请求成功
+        if (response.status == 200) {
+            return response.data
+        }
+    },
+    (error)=>{
+        const {statusText,status}=error.response;
+        message.error(`服务器错误：[${status}] ${statusText}`);
     }
-
-},
-(error) => {
-
-    return false;
-}
 )
 
 

@@ -38,9 +38,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { defineComponent, reactive } from 'vue';
+  import { defineComponent, reactive } from 'vue'
+  import { message } from 'ant-design-vue'
   import { useRouter } from 'vue-router'
-  import axios from 'axios';
+  import axios from 'axios'
+  import {loginPOST} from '@/api/index'  // api 
 
 
   const router=useRouter()
@@ -53,32 +55,28 @@
   }
 
   const formState = reactive<FormState>({
-    username: '',
-    password: '',
+    username: 'admin',
+    password: '123',
     remember: true,
   });
 
   const onFinish = (values: any) => {
-    // router.push('/')
-    // console.log('Success:', values);
 
-    console.log(  )
-    axios.post( `${process.env["VUE_APP_SERVER_API_BASE"]}login`,{
-      username: 'admin',
-      password: '123'
+    loginPOST({
+      params:{
+        username: 'admin',
+        password: '123'
+      }
     })
-    .then(function (response) {
-      console.log(response);
+    .then((response)=>{
+      const {username}=response;
+      localStorage.setItem("_login_config",JSON.stringify(response))
+      message.success(`登录成功：${username}`)
+      router.push('/')
     })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    // router.push('/')
     // console.log('Failed:', errorInfo);
   };    
 
@@ -93,7 +91,7 @@
   text-align: center;
 
   .form-container{
-    margin-top: 10%;
+    margin-top: 8%;
     display: inline-block;
     text-align: left;
     // text-align: center;
