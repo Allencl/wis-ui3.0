@@ -29,7 +29,7 @@
                     </a>
                     <template #overlay>
                         <a-menu class="user-menu-content">
-                            <h1>周某某</h1>
+                            <h1>{{state.username||'未知'}}</h1>
                             <a-menu-item @click="loginHandle">
                                 <!-- <DownOutlined /> -->
                                 <import-outlined />
@@ -43,7 +43,7 @@
     </a-layout-header>
 </template>
 <script lang="ts" setup>
-    import { defineComponent,watch, ref } from 'vue'
+    import { defineComponent,watch, ref,reactive } from 'vue'
     import { useStore } from 'vuex'
     import { useRoute,useRouter } from 'vue-router'
     import { ImportOutlined } from '@ant-design/icons-vue'
@@ -52,7 +52,11 @@
     const store=useStore()
     const route = useRoute()
     const router=useRouter()
+    const state=reactive({username:""}) 
 
+
+    const userConfig=JSON.parse(localStorage.getItem("_login_config")||"{}")
+    state.username=userConfig.username
 
     const onRemove = (targetKey: string) => {
         store.dispatch("removeTabs",targetKey);
