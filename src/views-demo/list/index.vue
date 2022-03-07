@@ -18,7 +18,7 @@ export default defineComponent({
     // console.log(b)
     companyList()
     .then((data)=>{
-      console.log(data)
+      // console.log(data)
     })
 
 

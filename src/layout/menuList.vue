@@ -43,6 +43,7 @@
     const props=defineProps<PropsType>()
 
     const menuItemClick=(option)=>{
-        store.dispatch("addTabs",option)
+        router.push(option.path)
+        // store.dispatch("addTabs",option)
     }
 </script>

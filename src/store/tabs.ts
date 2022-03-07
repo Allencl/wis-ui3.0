@@ -1,4 +1,5 @@
 import router from '@/router'
+import { cloneDeep } from 'lodash'
 
 
 /**
@@ -14,7 +15,6 @@ export default {
 		 * add tabs
 		*/
         addTabs:function(state:any,agrs:any){
-            router.push(agrs.path)
 
             //去重
             if( !state.tabsList.filter((o:any)=>o.path==agrs.path).length ) {
@@ -25,6 +25,25 @@ export default {
                     if(o.path==agrs.path) state.activeKey=i
                 })
             }
+
+
+            // router.push(agrs.path)
+            // try {
+            //     // !sessionStorage.getItem("_tabsList") && sessionStorage.setItem("_tabsList",JSON.stringify([{a:1}]))
+               
+            //     // const aa=sessionStorage.getItem("_tabsList")||"[]"
+            //     // const _tabsList=JSON.parse(sessionStorage.getItem("_tabsList")||"[]")
+            //     // const _list=_tabsList.filter((o:any)=>o.path!=agrs.path)
+            //     // console.log(    _list )
+ 
+            //     // console.log(    agrs )
+
+                
+            // } catch (error) {
+            //     console.error(error)
+            // }
+
+
 		},  
 		/**
 		 * remove tabs
