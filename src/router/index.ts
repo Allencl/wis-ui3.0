@@ -55,10 +55,12 @@ router.beforeEach((to, from, next) => {
   const {meta,path}=to;
 
   // add tabs
-  store.dispatch("addTabs",{
-    name:meta.tittle,
-    path:path
-  })
+  if( !meta.independ ){
+    store.dispatch("addTabs",{
+      name:meta.tittle,
+      path:path
+    })
+  }
 
   next();
 })
