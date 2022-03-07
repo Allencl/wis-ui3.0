@@ -40,6 +40,8 @@
 <script lang="ts" setup>
   import { defineComponent, reactive } from 'vue';
   import { useRouter } from 'vue-router'
+  import axios from 'axios';
+
 
   const router=useRouter()
 
@@ -57,12 +59,26 @@
   });
 
   const onFinish = (values: any) => {
-    router.push('/')
+    // router.push('/')
     // console.log('Success:', values);
+
+    console.log(  )
+    axios.post( `${process.env["VUE_APP_SERVER_API_BASE"]}login`,{
+      username: 'admin',
+      password: '123'
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    router.push('/')
+    // router.push('/')
     // console.log('Failed:', errorInfo);
   };    
 
