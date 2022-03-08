@@ -16,22 +16,22 @@ export default defineComponent({
   setup() {
     // console.log()
     // console.log(b)
-    companyList()
-    .then((data)=>{
-      // console.log(data)
-    })
+    // companyList()
+    // .then((data)=>{
+    //   // console.log(data)
+    // })
 
 
     const columns = [{
-    name: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    }, 
-    {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-    }, 
+        name: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+      }, 
+      {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+      }, 
     {
     title: 'Address',
     dataIndex: 'address',
